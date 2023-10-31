@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+#***************** INICIO PostgreSql *****************
+  db:
+    image: postgres:14.3
+    restart: always
+    ports: 
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER_NAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    container_name: hospital-api
+#***************** FIN PostgreSql *****************
+
+#***************** INICIO sql-server *****************
+  # sqlserver:
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   environment:
+  #     SA_PASSWORD: Password12345
+  #     ACCEPT_EULA: Y
+  #     MSSQL_PID: Developer
+  #   ports:
+  #     - "1433:1433"
+  #   container_name: sql-server-container
+#***************** FIN sql-server *****************
